@@ -1,0 +1,43 @@
+{
+  "name": "Edge Tab Tools \u2014 V1.1: Group Banner & Tab Rename",
+  "description": "Auto favicon color by tab group. Page-top banner shows group name, tab count, and custom tab title; matches group color and offsets page. Rename tab/group via page menu; banner has \u22ef menu and right-click to hide until reload.",
+  "version": "1.1.0",
+  "manifest_version": 3,
+  "permissions": [
+    "tabs",
+    "tabGroups",
+    "contextMenus",
+    "storage"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*",
+    "file://*/*"
+  ],
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*",
+        "file://*/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "overlay.css",
+        "banner.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Edge Tab Tools"
+  },
+  "icons": {
+    "128": "assets/icon-128.png"
+  }
+}
